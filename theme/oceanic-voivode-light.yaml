@@ -1,13 +1,13 @@
-$schema: "vscode://schemas/color-theme"
-type: "light"
-colors: 
+presets:
+  - &editorWidget.foreground  "#616161"
+workbench: 
   # base colors
-  foreground: "#616161"
+  foreground: &foreground "#616161"
   errorForeground: "#a1260d"
   descriptionForeground: "#717171"
   icon.foreground: "#424242"
-  focusBorder: "#0090f1"
-  contrastBorder: null
+  focusBorder: &focusBorder "#0090f1"
+  contrastBorder: &contrastBorder null
   contrastActiveBorder: null
   selection.background: null
 
@@ -25,7 +25,7 @@ colors:
 
   # input
   input.background: "#ffffff"
-  input.foreground: "#616161"
+  input.foreground: *foreground #"#616161"
   input.border: null
   inputOption.activeBorder: "#007acc00"
   inputOption.activeBackground: "#0090f133"
@@ -44,15 +44,15 @@ colors:
   inputValidation.errorBorder: "#be1100"
 
   # dropdown
-  dropdown.background: "#ffffff"
+  dropdown.background: &dropdown.background "#ffffff"
   dropdown.listBackground: null
-  dropdown.foreground: null
-  dropdown.border: "#cecece"
+  dropdown.foreground: &dropdown.foreground null
+  dropdown.border: &dropdown.border "#cecece"
 
   # checkbox
-  checkbox.background: "#ffffff"
-  checkbox.border: "#cecece"
-  checkbox.foreground: null
+  checkbox.background: *dropdown.background #"#ffffff"
+  checkbox.border: *dropdown.border #"#cecece"
+  checkbox.foreground: *dropdown.foreground #null
 
   # button
   button.foreground: "#ffffff"
@@ -78,31 +78,31 @@ colors:
 
   # editor annotations
   editorError.background: null
-  editorError.foreground: "#e51400"
+  editorError.foreground: &editorError.foreground "#e51400"
   editorError.border: null
   editorWarning.background: null
-  editorWarning.foreground: "#bf8803"
-  editorWarning.border: null
+  editorWarning.foreground: &editorWarning.foreground "#bf8803"
+  editorWarning.border: &editorWarning.border null
   editorInfo.background: null
-  editorInfo.foreground: "#75beff"
+  editorInfo.foreground: &editorInfo.foreground "#75beff"
   editorInfo.border: null
   editorHint.foreground: "#6c6c6c"
   editorHint.border: null
-  sash.hoverBorder: "#0090f1"
+  sash.hoverBorder: *focusBorder #"#0090f1"
 
   # editor colors
-  editor.background: "#ffffff"
+  editor.background: &editor.background "#ffffff"
   editor.foreground: "#000000"
 
   # editor widgets
-  editorWidget.background: "#f3f3f3"
-  editorWidget.foreground: "#616161"
-  editorWidget.border: "#c8c8c8"
+  editorWidget.background: &editorWidget.background "#f3f3f3"
+  editorWidget.foreground: *foreground #"#616161"
+  editorWidget.border: &editorWidget.border "#c8c8c8"
   editorWidget.resizeBorder: null
 
   # quick picker
-  quickInput.background: "#f3f3f3"
-  quickInput.foreground: "#616161"
+  quickInput.background: *editorWidget.background #"#f3f3f3"
+  quickInput.foreground: *editorWidget.foreground #"#616161"
   quickInputTitle.background: "#0000000f"
   pickerGroup.foreground: "#0066bf"
   pickerGroup.border: "#cccedb"
@@ -122,10 +122,10 @@ colors:
 
   # editor find match
   editor.findMatchBackground: "#a8ac94"
-  editor.findMatchHighlightBackground: "#ea5c0055"
+  editor.findMatchHighlightBackground: &editor.findMatchHighlightBackground "#ea5c0055"
   editor.findRangeHighlightBackground: "#b4b4b44d"
   editor.findMatchBorder: null
-  editor.findMatchHighlightBorder: null
+  editor.findMatchHighlightBorder: &editor.findMatchHighlightBorder null
   editor.findRangeHighlightBorder: null
 
   # search editor query match
@@ -134,9 +134,9 @@ colors:
 
   # editor hover
   editor.hoverHighlightBackground: "#add6ff26"
-  editorHoverWidget.background: "#f3f3f3"
-  editorHoverWidget.foreground: "#616161"
-  editorHoverWidget.border: "#c8c8c8"
+  editorHoverWidget.background: *editorWidget.background #"#f3f3f3"
+  editorHoverWidget.foreground: *editorWidget.foreground #"#616161"
+  editorHoverWidget.border: *editorWidget.border #"#c8c8c8"
   editorHoverWidget.statusBarBackground: "#e7e7e7"
   
   # editor link
@@ -161,10 +161,10 @@ colors:
   # lists and trees
   list.focusBackground: null
   list.focusForeground: null
-  list.focusOutline: "#0090f1"
-  list.activeSelectionBackground: "#0060c0"
-  list.activeSelectionForeground: "#ffffff"
-  list.activeSelectionIconForeground: "#ffffff"
+  list.focusOutline: *focusBorder #"#0090f1"
+  list.activeSelectionBackground: &list.activeSelectionBackground "#0060c0"
+  list.activeSelectionForeground: &list.activeSelectionForeground "#ffffff"
+  list.activeSelectionIconForeground: &list.activeSelectionIconForeground "#ffffff"
   list.inactiveSelectionBackground: "#e4e6f1"
   list.inactiveSelectionForeground: null
   list.inactiveSelectionIconForeground: null
@@ -181,24 +181,24 @@ colors:
   listFilterWidget.background: "#efc1ad"
   listFilterWidget.noMatchesOutline: "#be1100"
   listFilterWidget.outline: "#00000000"
-  list.filterMatchBackground: "#ea5c0055"
-  list.filterMatchBorder: null
+  list.filterMatchBackground: *editor.findMatchHighlightBackground #"#ea5c0055"
+  list.filterMatchBorder: *editor.findMatchHighlightBorder #null
   tree.indentGuidesStroke: "#a9a9a9"
   tree.tableColumnsBorder: "#61616120"
   list.deemphasizedForeground: "#8e8e90"
 
   # quick puck widget (list/tree)
-  quickInputList.focusForeground: "#ffffff"
-  quickInputList.focusIconForeground: "#ffffff"
+  quickInputList.focusForeground: *list.activeSelectionBackground #"#ffffff"
+  quickInputList.focusIconForeground: *list.activeSelectionIconForeground #"#ffffff"
   # quickInput.list.focusBackground: null
-  quickInputList.focusBackground: "#0060c0"
+  quickInputList.focusBackground: *list.activeSelectionBackground #"#0060c0"
 
   # menu
   menu.border: null
   menu.foreground: "#616161"
-  menu.background: "#ffffff"
-  menu.selectionForeground: "#ffffff"
-  menu.selectionBackground: "#0060c0"
+  menu.background: *dropdown.background #"#ffffff"
+  menu.selectionForeground: *list.activeSelectionForeground #"#ffffff"
+  menu.selectionBackground: *list.activeSelectionBackground #"#0060c0"
   menu.selectionBorder: null
   menu.separatorBackground: "#888888"
 
@@ -215,47 +215,47 @@ colors:
 
   # breadcrumbs
   breadcrumb.foreground: "#616161cc"
-  breadcrumb.background: "#ffffff"
+  breadcrumb.background: *editor.background #"#ffffff"
   breadcrumb.focusForeground: "#4e4e4e"
   breadcrumb.activeSelectionForeground: "#4e4e4e"
-  breadcrumbPicker.background: "#f3f3f3"
+  breadcrumbPicker.background: *editorWidget.background #"#f3f3f3"
 
   # merge conflicts
-  merge.currentHeaderBackground: "#40c8ae80"
+  merge.currentHeaderBackground: &merge.currentHeaderBackground "#40c8ae80"
   merge.currentContentBackground: "#40c8ae33"
-  merge.incomingHeaderBackground: "#40a6ff80"
+  merge.incomingHeaderBackground: &merge.incomingHeaderBackground "#40a6ff80"
   merge.incomingContentBackground: "#40a6ff33"
-  merge.commonHeaderBackground: "#60606066"
+  merge.commonHeaderBackground: &merge.commonHeaderBackground "#60606066"
   merge.commonContentBackground: "#60606029"
-  merge.border: null
+  merge.border: &merge.border null
 
   # editor overview ruler
-  editorOverviewRuler.currentContentForeground: "#40c8ae80"
-  editorOverviewRuler.incomingContentForeground: "#40a6ff80"
-  editorOverviewRuler.commonContentForeground: "#60606066"
+  editorOverviewRuler.currentContentForeground: *merge.currentHeaderBackground #"#40c8ae80"
+  editorOverviewRuler.incomingContentForeground: *merge.incomingHeaderBackground #"#40a6ff80"
+  editorOverviewRuler.commonContentForeground: *merge.commonHeaderBackground #"#60606066"
   editorOverviewRuler.findMatchForeground: "#d186167e"
   editorOverviewRuler.selectionHighlightForeground: "#a0a0a0cc"
 
   # minimap
-  minimap.findMatchHighlight: "#d18616"
+  minimap.findMatchHighlight: &minimap.findMatchHighlight "#d18616"
   minimap.selectionHighlight: "#add6ff"
   minimap.errorHighlight: "#ff1212b3"
-  minimap.warningHighlight: "#bf8803"
+  minimap.warningHighlight: *editorWarning.foreground #"#bf8803"
   minimap.background: null
   minimapSlider.background: "#64646433"
   minimapSlider.hoverBackground: "#64646459"
   minimapSlider.activeBackground: "#0000004d"
-  problemsErrorIcon.foreground: "#e51400"
-  problemsWarningIcon.foreground: "#bf8803"
-  problemsInfoIcon.foreground: "#75beff"
+  problemsErrorIcon.foreground: *editorError.foreground #"#e51400"
+  problemsWarningIcon.foreground: *editorWarning.foreground #"#bf8803"
+  problemsInfoIcon.foreground: *editorInfo.foreground #"#75beff"
 
   # charts
-  charts.foreground: "#616161"
+  charts.foreground: *foreground #"#616161"
   charts.lines: "#61616180"
-  charts.red: "#e51400"
-  charts.blue: "#75beff"
-  charts.yellow: "#bf8803"
-  charts.orange: "#d18616"
+  charts.red: *editorError.foreground #"#e51400"
+  charts.blue: *editorInfo.foreground #"#75beff"
+  charts.yellow: *editorWarning.foreground #"#bf8803"
+  charts.orange: *minimap.findMatchHighlight #"#d18616"
   charts.green: "#388a34"
   charts.purple: "#652d90"
 
