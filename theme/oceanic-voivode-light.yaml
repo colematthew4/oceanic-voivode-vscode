@@ -1,8 +1,6 @@
 presets:
   - &editorWidget.foreground                    "#616161"
-  - &tab.activeBackground                       "#ffffff"
   - &checkbox.background                        "#ffffff"
-  - &checkbox.foreground                        "#ffffff"
   - &checkbox.border                            "#cecece"
   - &input.foreground                           "#616161"
   - &quickInputList.focusForeground             "#ffffff"
@@ -69,7 +67,7 @@ workbench:
   button.foreground: &button.foreground "#ffffff"
   button.background: &button.background "#007acc"
   button.hoverBackground: &button.hoverBackground "#0062a3"
-  button.border: null
+  button.border: *contrastBorder #null
   button.secondaryForeground: "#ffffff"
   button.secondaryBackground: "#5f6a79"
   button.secondaryHoverBackground: "#4c5561"
@@ -198,15 +196,15 @@ workbench:
   tree.tableColumnsBorder: "#61616120"
   list.deemphasizedForeground: "#8e8e90"
 
-  # quick puck widget (list/tree)
-  quickInputList.focusForeground: "#ffffff"          # -> list.activeSelectionBackground
+  # quick pick widget (list/tree)
+  quickInputList.focusForeground: *list.activeSelectionForeground #"#ffffff"
   quickInputList.focusIconForeground: *list.activeSelectionIconForeground #"#ffffff"
   # quickInput.list.focusBackground: null
   quickInputList.focusBackground: *list.activeSelectionBackground #"#0060c0"
 
   # menu
   menu.border: null
-  menu.foreground: "#616161"
+  menu.foreground: *foreground #"#616161"
   menu.background: *dropdown.background #"#ffffff"
   menu.selectionForeground: *list.activeSelectionForeground #"#ffffff"
   menu.selectionBackground: *list.activeSelectionBackground #"#0060c0"
@@ -288,7 +286,7 @@ workbench:
   tab.activeBorder: &tab.activeBorder null
   tab.unfocusedActiveBorder: null                     # -> tab.activeBorder 70%
   tab.activeBorderTop: null
-  tab.unfocusedActiveBorderTop: null                  # -> tab.unfocusedActiveBorder 70%
+  tab.unfocusedActiveBorderTop: null                  # -> tab.unfocusedBorderTop 70%
   tab.hoverBorder: null
   tab.unfocusedHoverBorder: null                      # -> tab.hoverBorder 70%
   tab.activeModifiedBorder: "#33aaee"
@@ -411,7 +409,7 @@ workbench:
   editorCursor.foreground: "#000000"
   editorCursor.background: null
   editorWhitespace.foreground: &editorWhitespace.foreground "#33333333"
-  editorIndentGuide.background: "#d3d3d3"
+  editorIndentGuide.background: "#d3d3d3"             # -> editorWhitespace.foreground
   editorIndentGuide.activeBackground: "#939393"       # -> editorWhitespace.foreground
   editorLineNumber.foreground: "#237893"
   # editorActiveLineNumber.foreground: "#0b216f"
@@ -604,9 +602,9 @@ workbench:
   editor.focusedStackFrameHighlightBackground: "#cee7ce73"
 
   # error navigation widget
-  editorMarkerNavigationError.background: "#e51400"     # -> editorError.foreground or editorErrorBorder
-  editorMarkerNavigationWarning.background: "#bf8803"   # -> editorWarning.foreground or editorWarningBorder
-  editorMarkerNavigationInfo.background: "#75beff"      # -> editorInfo.foreground or editorInfoBorder
+  editorMarkerNavigationError.background: "#e51400"     # -> editorError.foreground or editorError.border
+  editorMarkerNavigationWarning.background: "#bf8803"   # -> editorWarning.foreground or editorWarning.border
+  editorMarkerNavigationInfo.background: "#75beff"      # -> editorInfo.foreground or editorInfo.border
   editorMarkerNavigation.background: "#ffffff"
 
   # word highlighter
