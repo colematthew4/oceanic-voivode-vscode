@@ -15,25 +15,22 @@ type ThemeColors = {
   [index: string]: string | null
 }
 
-async function readYaml(): Promise<YamlTheme> {
-  const file = await fs.readFile(join(__dirname, '..', 'theme', 'oceanic-voivode.yml'), 'utf8');
+async function readYaml(theme: String): Promise<YamlTheme> {
+  const file = await fs.readFile(join(__dirname, '..', 'theme', `oceanic-voivode-${theme}.yaml`), 'utf8');
   return yaml.load(file) as YamlTheme;
 }
 
 async function writeJson(json: Theme, theme: string) {
-  const data: ColorTheme = {};
-  Object.entries(json).forEach(([key, value]) => {
-    const color = value != null ? value[theme] : null;
-    data[key] = color;
-  });
   await fs.writeFile(join(__dirname, '..', 'theme', 'generated.json'), JSON.stringify({
-    colors: data
+    '$schema': 'vscode://schemas/color-theme',
+    'type': theme,
+    'colors': json
   }, null, 2));
 }
 
-async function build(themes: Array<string>) {
-  const data: any = await readYaml();
+function build(themes: Array<string>) {
   themes.forEach(async theme => {
+    const data: any = await readYaml(theme);
     await writeJson(data.workbench, theme);
   });
 };
