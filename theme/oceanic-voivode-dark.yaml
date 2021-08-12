@@ -1,28 +1,24 @@
 presets:
-  - &editorWidget.foreground                    "#cccccc"
-  - &dropdown.border                            "#3c3c3c"
-  - &checkbox.background                        "#3c3c3c"
-  - &checkbox.border                            "#3c3c3c"
-  - &input.foreground                           "#cccccc"
-  - &quickInputList.focusBackground             "#ffffff"
-  - &quickInputList.focusIconForeground         "#ffffff"
-  - &list.focusHighlightForeground              "#18a3ff"
-  - &notebook.cellBorderColor                   "#37373d"
-  - &gitlens.decorations.copiedForegroundColor  "#73c991"
 workbench:
   # base colors
-  foreground: &foreground "#cccccc"
-  errorForeground: &errorForeground "#f48771"
+  foreground: &foreground 
+    color: "#cccccc"
+  errorForeground: &errorForeground 
+    color: "#f48771"
   descriptionForeground: "#ccccccb3"
-  icon.foreground: &icon.foreground "#c5c5c5"
-  focusBorder: &focusBorder "#007fd4"
-  contrastBorder: &contrastBorder null
+  icon.foreground: &icon.foreground 
+    color: "#c5c5c5"
+  focusBorder: &focusBorder 
+    color: "#007fd4"
+  contrastBorder: &contrastBorder 
+    color: null
   contrastActiveBorder: null
   selection.background: null
 
   # text colors
   textSeparator.foreground: "#ffffff2e"
-  textLink.foreground: &textLink.foreground "#3794ff"
+  textLink.foreground: &textLink.foreground 
+    color: "#3794ff"
   textLink.activeForeground: "#3794ff"
   textPreformat.foreground: "#d7ba7d"
   textBlockQuote.background: "#7f7f7f1a"
@@ -30,12 +26,16 @@ workbench:
   textCodeBlock.background: "#0a0a0a66"
 
   # widgets
-  widget.shadow: &widget.shadow "#0000005c"
+  widget.shadow: &widget.shadow 
+    color: "#0000005c"
 
   # input
-  input.background: &input.background "#3c3c3c"
-  input.foreground: *foreground #"#cccccc"
-  input.border: &input.border null
+  input.background: &input.background 
+    color: "#3c3c3c"
+  input.foreground: &input.foreground
+    <<: *foreground #"#cccccc"
+  input.border: &input.border 
+    color: null
   inputOption.activeBorder: "#007acc00"
   inputOption.activeBackground: "#007fd466"
   inputOption.activeForeground: "#ffffff"
@@ -53,20 +53,28 @@ workbench:
   inputValidation.errorBorder: "#be1100"
 
   # dropdown
-  dropdown.background: &dropdown.background "#3c3c3c"
+  dropdown.background: &dropdown.background 
+    color: "#3c3c3c"
   dropdown.listBackground: null
-  dropdown.foreground: &dropdown.foreground "#f0f0f0"
-  dropdown.border: *dropdown.background #"#3c3c3c"
+  dropdown.foreground: &dropdown.foreground 
+    color: "#f0f0f0"
+  dropdown.border: &dropdown.border 
+    <<: *dropdown.background #"#3c3c3c"
 
   # checkbox
-  checkbox.background: *dropdown.background #"#3c3c3c"
-  checkbox.border: *dropdown.border #"#3c3c3c"
+  checkbox.background: &checkbox.background
+    <<: *dropdown.background #"#3c3c3c"
+  checkbox.border: &checkbox.border
+    <<: *dropdown.border #"#3c3c3c"
   checkbox.foreground: *dropdown.foreground #"#f0f0f0"
 
   # button
-  button.foreground: &button.foreground "#ffffff"
-  button.background: &button.background "#0e639c"
-  button.hoverBackground: &button.hoverBackground "#1177bb"
+  button.foreground: &button.foreground 
+    color: "#ffffff"
+  button.background: &button.background 
+    color: "#0e639c"
+  button.hoverBackground: &button.hoverBackground 
+    color: "#1177bb"
   button.border: *contrastBorder #null
   button.secondaryForeground: "#ffffff"
   button.secondaryBackground: "#3a3d41"
@@ -78,35 +86,50 @@ workbench:
 
   # scrollbar
   scrollbar.shadow: "#000000"
-  scrollbarSlider.background: &scrollbarSlider.background "#79797966"
-  scrollbarSlider.hoverBackground: &scrollbarSlider.hoverBackground "#646464b3"
-  scrollbarSlider.activeBackground: &scrollbarSlider.activeBackground "#bfbfbf66"
+  scrollbarSlider.background: &scrollbarSlider.background 
+    color: "#79797966"
+  scrollbarSlider.hoverBackground: &scrollbarSlider.hoverBackground 
+    color: "#646464b3"
+  scrollbarSlider.activeBackground: &scrollbarSlider.activeBackground 
+    color: "#bfbfbf66"
 
   # progress bar
   progressBar.background: "#0e70c0"
 
   # editor annotations
   editorError.background: null
-  editorError.foreground: &editorError.foreground "#f48771"
-  editorError.border: null
+  editorError.foreground: &editorError.foreground 
+    color: "#f48771"
+  editorError.border: &editorError.border
+    color: null
   editorWarning.background: null
-  editorWarning.foreground: &editorWarning.foreground "#cca700"
-  editorWarning.border: &editorWarning.border null
+  editorWarning.foreground: &editorWarning.foreground 
+    color: "#cca700"
+  editorWarning.border: &editorWarning.border
+    color: null
   editorInfo.background: null
-  editorInfo.foreground: &editorInfo.foreground "#75beff"
-  editorInfo.border: null
-  editorHint.foreground: &editorHint.foreground "#eeeeeeb3"
+  editorInfo.foreground: &editorInfo.foreground 
+    color: "#75beff"
+  editorInfo.border: &editorInfo.border
+    color: null
+  editorHint.foreground: &editorHint.foreground 
+    color: "#eeeeeeb3"
   editorHint.border: null
   sash.hoverBorder: *focusBorder #"#007fd4"
 
   # editor colors
-  editor.background: &editor.background "#1e1e1e"
-  editor.foreground: &editor.foreground "#d4d4d4"
+  editor.background: &editor.background 
+    color: "#1e1e1e"
+  editor.foreground: &editor.foreground 
+    color: "#d4d4d4"
 
   # editor widgets
-  editorWidget.background: &editorWidget.background "#252526"
-  editorWidget.foreground: *foreground #"#cccccc"
-  editorWidget.border: &editorWidget.border "#454545"
+  editorWidget.background: &editorWidget.background 
+    color: "#252526"
+  editorWidget.foreground: &editorWidget.foreground
+    <<: *foreground #"#cccccc"
+  editorWidget.border: &editorWidget.border 
+    color: "#454545"
   editorWidget.resizeBorder: null
 
   # quick picker
@@ -123,7 +146,8 @@ workbench:
   keybindingLabel.bottomBorder: "#44444499"
   
   # editor selection
-  editor.selectionBackground: "#264f78"
+  editor.selectionBackground: &editor.selectionBackground
+    color: "#264f78"
   editor.selectionForeground: null
   editor.inactiveSelectionBackground: "#3a3d41"
   editor.selectionHighlightBackground: "#add6ff26"
@@ -131,10 +155,12 @@ workbench:
 
   # editor find match
   editor.findMatchBackground: "#515c6a"
-  editor.findMatchHighlightBackground: &editor.findMatchHighlightBackground "#ea5c0055"
+  editor.findMatchHighlightBackground: &editor.findMatchHighlightBackground 
+    color: "#ea5c0055"
   editor.findRangeHighlightBackground: "#3a3d4166"
   editor.findMatchBorder: null
-  editor.findMatchHighlightBorder: &editor.findMatchHighlightBorder null
+  editor.findMatchHighlightBorder: &editor.findMatchHighlightBorder 
+    color: null
   editor.findRangeHighlightBorder: null
 
   # search editor query match
@@ -171,10 +197,14 @@ workbench:
   list.focusBackground: null
   list.focusForeground: null
   list.focusOutline: *focusBorder #"#007fd4"
-  list.activeSelectionBackground: &list.activeSelectionBackground "#094771"
-  list.activeSelectionForeground: &list.activeSelectionForeground "#ffffff"
-  list.activeSelectionIconForeground: &list.activeSelectionIconForeground "#ffffff"
-  list.inactiveSelectionBackground: &list.inactiveSelectionBackground "#37373d"
+  list.activeSelectionBackground: &list.activeSelectionBackground 
+    color: "#094771"
+  list.activeSelectionForeground: &list.activeSelectionForeground 
+    color: "#ffffff"
+  list.activeSelectionIconForeground: &list.activeSelectionIconForeground 
+    color: "#ffffff"
+  list.inactiveSelectionBackground: &list.inactiveSelectionBackground 
+    color: "#37373d"
   list.inactiveSelectionForeground: null
   list.inactiveSelectionIconForeground: null
   list.inactiveFocusBackground: null
@@ -182,8 +212,10 @@ workbench:
   list.hoverBackground: "#2a2d2e"
   list.hoverForeground: null
   list.dropBackground: "#383b3d"
-  list.highlightForeground: &list.highlightForeground "#18a3ff"
-  list.focusHighlightForeground: *list.highlightForeground #"#18a3ff"
+  list.highlightForeground: &list.highlightForeground 
+    color: "#18a3ff"
+  list.focusHighlightForeground: &list.focusHighlightForeground
+    <<: *list.highlightForeground #"#18a3ff"
   list.invalidItemForeground: "#b89500"
   list.errorForeground: "#f88070"
   list.warningForeground: "#cca700"
@@ -192,20 +224,24 @@ workbench:
   listFilterWidget.outline: "#00000000"
   list.filterMatchBackground: *editor.findMatchHighlightBackground #"#ea5c0055"
   list.filterMatchBorder: *editor.findMatchHighlightBorder #null
-  tree.indentGuidesStroke: &tree.indentGuidesStroke "#585858"
+  tree.indentGuidesStroke: &tree.indentGuidesStroke 
+    color: "#585858"
   tree.tableColumnsBorder: "#cccccc20"
   list.deemphasizedForeground: "#8c8c8c"
 
   # quick pick widget (list/tree)
-  quickInputList.focusForeground: *list.activeSelectionForeground #"#ffffff"
-  quickInputList.focusIconForeground: *list.activeSelectionIconForeground #"#ffffff"
+  quickInputList.focusForeground: &quickInputList.focusForeground
+    <<: *list.activeSelectionForeground #"#ffffff"
+  quickInputList.focusIconForeground: &quickInputList.focusIconForeground
+    <<: *list.activeSelectionIconForeground #"#ffffff"
   # quickInput.list.focusBackground: null
-  quickInputList.focusBackground: *list.activeSelectionBackground #"#094771"
+  quickInputList.focusBackground: &quickInputList.focusBackground
+    <<: *list.activeSelectionBackground #"#094771"
 
   # menu
   menu.border: null
-  menu.foreground: *dropdown.foreground #"#cccccc"
-  menu.background: *dropdown.background #"#252526"
+  menu.foreground: "#cccccc"            # -> *dropdown.foreground
+  menu.background: "#252526"            # -> *dropdown.background
   menu.selectionForeground: *list.activeSelectionForeground #"#ffffff"
   menu.selectionBackground: *list.activeSelectionBackground #"#094771"
   menu.selectionBorder: null
@@ -230,11 +266,14 @@ workbench:
   breadcrumbPicker.background: *editorWidget.background #"#252526"
 
   # merge conflicts
-  merge.currentHeaderBackground: &merge.currentHeaderBackground "#40c8ae80"
+  merge.currentHeaderBackground: &merge.currentHeaderBackground 
+    color: "#40c8ae80"
   merge.currentContentBackground: "#40c8ae33"
-  merge.incomingHeaderBackground: &merge.incomingHeaderBackground "#40a6ff80"
+  merge.incomingHeaderBackground: &merge.incomingHeaderBackground 
+    color: "#40a6ff80"
   merge.incomingContentBackground: "#40a6ff33"
-  merge.commonHeaderBackground: &merge.commonHeaderBackground "#60606066"
+  merge.commonHeaderBackground: &merge.commonHeaderBackground 
+    color: "#60606066"
   merge.commonContentBackground: "#60606029"
   merge.border: null
   
@@ -246,7 +285,8 @@ workbench:
   editorOverviewRuler.selectionHighlightForeground: "#a0a0a0cc"
 
   # minimap
-  minimap.findMatchHighlight: &minimap.findMatchHighlight "#d18616"
+  minimap.findMatchHighlight: &minimap.findMatchHighlight 
+    color: "#d18616"
   minimap.selectionHighlight: "#264f78"
   minimap.errorHighlight: "#ff1212b3"
   minimap.warningHighlight: *editorWarning.foreground #"#cca700"
@@ -271,28 +311,44 @@ workbench:
   # tabs
   tab.activeBackground: *editor.background #"#1e1e1e"
   tab.unfocusedActiveBackground: "#1e1e1e"
-  tab.inactiveBackground: &tab.inactiveBackground "#2d2d2d"
+  tab.inactiveBackground: &tab.inactiveBackground 
+    color: "#2d2d2d"
   tab.unfocusedInactiveBackground: *tab.inactiveBackground #"#2d2d2d"
-  tab.activeForeground: "#ffffff"
-  tab.inactiveForeground: "#ffffff80"                 # -> tab.activeForeground 50%
-  tab.unfocusedActiveForeground: "#ffffff80"          # -> tab.activeForeground 50%
-  tab.unfocusedInactiveForeground: "#ffffff40"        # -> tab.inactiveForeground 50%
+  tab.activeForeground: &tab.activeForeground 
+    color: "#ffffff"
+  tab.inactiveForeground: &tab.inactiveForeground
+    opacity: 0.5
+    <<: *tab.activeForeground #50% -> #ffffff80
+  tab.unfocusedActiveForeground:
+    opacity: 0.5
+    <<: *tab.activeForeground #50% -> #ffffff80
+  tab.unfocusedInactiveForeground:
+    opacity: 0.25
+    <<: *tab.inactiveForeground #50% -> #ffffff40
   tab.hoverBackground: null
   tab.unfocusedHoverBackground: null                  # -> tab.hoverBackground 50%
   tab.hoverForeground: null
   tab.unfocusedHoverForeground: null                  # -> tab.hoverForeground 50%
   tab.border: "#252526"
   tab.lastPinnedBorder: "#cccccc33"                   # -> tree.indentGuidesStroke
-  tab.activeBorder: &tab.activeBorder null
+  tab.activeBorder: &tab.activeBorder
+    color: null
   tab.unfocusedActiveBorder: null                     # -> tab.activeBorder 50%
   tab.activeBorderTop: null
-  tab.unfocusedActiveBorderTop: null                  # -> tab.unfocusedBorderTop 50%
+  tab.unfocusedActiveBorderTop: null                  # -> tab.activeBorderTop 50%
   tab.hoverBorder: null
   tab.unfocusedHoverBorder: null                      # -> tab.hoverBorder 50%
-  tab.activeModifiedBorder: "#3399cc"
-  tab.inactiveModifiedBorder: "#3399cc80"             # -> tab.activeModifiedBorder 50%
-  tab.unfocusedActiveModifiedBorder: "#3399cc80"      # -> tab.activeModifiedBorder 70%
-  tab.unfocusedInactiveModifiedBorder: "#3399cc40"    # -> tab.inactiveModifiedBorder 50%
+  tab.activeModifiedBorder: &tab.activeModifiedBorder 
+    color: "#3399cc"
+  tab.inactiveModifiedBorder: &tab.inactiveModifiedBorder
+    opacity: 0.5
+    <<: *tab.activeModifiedBorder #50% -> #3399cc80
+  tab.unfocusedActiveModifiedBorder:
+    opacity: 0.5
+    <<: *tab.activeModifiedBorder #50% -> #3399cc80
+  tab.unfocusedInactiveModifiedBorder: 
+    opacity: 0.25
+    <<: *tab.inactiveModifiedBorder #50% -> #3399cc40
   
   # editors
   editorPane.background: *editor.background #"#1e1e1e"
@@ -304,13 +360,18 @@ workbench:
   editorGroupHeader.noTabsBackground: *editor.background #"#1e1e1e"
   editorGroupHeader.border: null
   editorGroup.border: "#444444"
-  editorGroup.dropBackground: &editorGroup.dropBackground "#53595d80"
+  editorGroup.dropBackground: &editorGroup.dropBackground 
+    color: "#53595d80"
   
   # panels
   panel.background: *editor.background #"#1e1e1e"
-  panel.border: &panel.border "#80808059"
-  panelTitle.activeForeground: &panelTitle.activeForeground "#e7e7e7"
-  panelTitle.inactiveForeground: "#e7e7e799"    # -> panelTitle.activeForeground 60%
+  panel.border: &panel.border 
+    color: "#80808059"
+  panelTitle.activeForeground: &panelTitle.activeForeground 
+    color: "#e7e7e7"
+  panelTitle.inactiveForeground: 
+    opacity: 0.6
+    <<: *panelTitle.activeForeground #60% -> #e7e7e799
   panelTitle.activeBorder: *panelTitle.activeForeground #"#e7e7e7"
   panelInput.border: null
   panel.dropBorder: *panelTitle.activeForeground #"#e7e7e7"
@@ -326,33 +387,46 @@ workbench:
   banner.iconForeground: *editorInfo.foreground #"#75beff"
   
   # status
-  statusBar.foreground: &statusBar.foreground #"#ffffff"
+  statusBar.foreground: &statusBar.foreground
+    color: "#ffffff"
   statusBar.noFolderForeground: *statusBar.foreground #"#ffffff"
   statusBar.background: "#007acc"
   statusBar.noFolderBackground: "#68217a"
-  statusBar.border: &statusBar.border null
+  statusBar.border: &statusBar.border
+    color: null
   statusBar.noFolderBorder: *statusBar.border #null
   statusBarItem.activeBackground: "#ffffff2e"
   statusBarItem.hoverBackground: "#ffffff1f"
   statusBarItem.prominentForeground: *statusBar.foreground #"#ffffff"
   statusBarItem.prominentBackground: "#00000080"
   statusBarItem.prominentHoverBackground: "#0000004d"
-  statusBarItem.errorBackground: "#c72e0f"                  # -> errorForeground darken 40%
+  statusBarItem.errorBackground: 
+    #"#c72e0f"                  # -> errorForeground darken 40%
+    illuminate: -0.4
+    <<: *errorForeground
   statusBarItem.errorForeground: "#ffffff"
-  statusBarItem.warningBackground: "#7a6400"                # -> editorWarning.foreground darken 40%
+  statusBarItem.warningBackground: 
+    #"#7a6400"                  # -> editorWarning.foreground darken 40%
+    illuminate: -0.4
+    <<: *editorWarning.foreground 
   statusBarItem.warningForeground: "#ffffff"
   
   # activity bar
   activityBar.background: "#333333"
-  activityBar.foreground: &activityBar.foreground "#ffffff"
-  activityBar.inactiveForeground: "#ffffff66"     # -> activityBar.foreground 40%
+  activityBar.foreground: &activityBar.foreground 
+    color: "#ffffff"
+  activityBar.inactiveForeground:
+    opacity: 0.4
+    <<: *activityBar.foreground #40% -> #ffffff66
   activityBar.border: null
   activityBar.activeBorder: *activityBar.foreground #"#ffffff"
   activityBar.activeFocusBorder: null
   activityBar.activeBackground: null
   activityBar.dropBorder: *activityBar.foreground #"#ffffff"
-  activityBarBadge.background: &activityBarBadge.background "#007acc"
-  activityBarBadge.foreground: &activityBarBadge.foreground "#ffffff"
+  activityBarBadge.background: &activityBarBadge.background 
+    color: "#007acc"
+  activityBarBadge.foreground: &activityBarBadge.foreground 
+    color: "#ffffff"
   
   # remote
   statusBarItem.remoteBackground: "#16825d"                     # -> activityBarBadge.background
@@ -361,8 +435,10 @@ workbench:
   extensionBadge.remoteForeground: *activityBarBadge.foreground #"#ffffff"
 
   # sidebar
-  sideBar.background: &sideBar.background "#252526"
-  sideBar.foreground: &sideBar.foreground null
+  sideBar.background: &sideBar.background 
+    color: "#252526"
+  sideBar.foreground: &sideBar.foreground
+    color: null
   sideBar.border: null
   sideBarTitle.foreground: "#bbbbbb"                  # -> sideBar.foreground
   sideBar.dropBackground: *editorGroup.dropBackground #"#53595d80"
@@ -371,10 +447,16 @@ workbench:
   sideBarSectionHeader.border: "#cccccc33"            # -> contrastBorder
   
   # titlebar
-  titleBar.activeForeground: &titleBar.activeForeground "#cccccc"
-  titleBar.inactiveForeground: "#cccccc99"  # -> titleBar.activeForeground 60%
-  titleBar.activeBackground: "#3c3c3c"
-  titleBar.inactiveBackground: "#3c3c3c99"  # -> titleBar.activeBackground 60%
+  titleBar.activeForeground: &titleBar.activeForeground 
+    color: "#cccccc"
+  titleBar.inactiveForeground: 
+    opacity: 0.6
+    <<: *titleBar.activeForeground #60% -> #cccccc99
+  titleBar.activeBackground: &titleBar.activeBackground
+    color: "#3c3c3c"
+  titleBar.inactiveBackground: 
+    opacity: 0.6
+    <<: *titleBar.activeBackground #60% -> #3c3c3c99
   titleBar.border: null
 
   # menubar
@@ -386,10 +468,14 @@ workbench:
   notificationCenter.border: null
   notificationToast.border: null
   notifications.foreground: *editorWidget.foreground #"#cccccc"
-  notifications.background: *editorWidget.background #"#252526"
+  notifications.background: &notifications.background
+    <<: *editorWidget.background #"#252526"
   notificationLink.foreground: *textLink.foreground #"#3794ff"
   notificationCenterHeader.foreground: null
-  notificationCenterHeader.background: &notificationCenterHeader.background "#303031"      # -> notifications.background lighten 30%
+  notificationCenterHeader.background: &notificationCenterHeader.background
+    # color: "#303031"      # -> notifications.background lighten 30%
+    illuminate: 0.3
+    <<: *notifications.background
   notifications.border: *notificationCenterHeader.background #"#303031"
   notificationsErrorIcon.foreground: *editorError.foreground #"#f48771"
   notificationsWarningIcon.foreground: *editorWarning.foreground #"#cca700"
@@ -408,7 +494,8 @@ workbench:
   editor.symbolHighlightBorder: null
   editorCursor.foreground: "#aeafad"
   editorCursor.background: null
-  editorWhitespace.foreground: &editorWhitespace.foreground "#e3e4e229"
+  editorWhitespace.foreground: &editorWhitespace.foreground 
+    color: "#e3e4e229"
   editorIndentGuide.background: "#404040"             # -> editorWhitespace.foreground
   editorIndentGuide.activeBackground: "#707070"       # -> editorWhitespace.foreground
   editorLineNumber.foreground: "#858585"
@@ -433,7 +520,8 @@ workbench:
   # testing
   testing.iconFailed: "#f14c4c"
   testing.iconErrored: "#f14c4c"
-  testing.iconPassed: &testing.iconPassed "#73c991"
+  testing.iconPassed: &testing.iconPassed 
+    color: "#73c991"
   testing.runAction: *testing.iconPassed #"#73c991"
   testing.iconQueued: "#cca700"
   testing.iconUnset: "#848484"
@@ -488,7 +576,10 @@ workbench:
   welcomePage.buttonHoverBackground: null
   welcomePage.background: null
   welcomePage.tileBackground: *editorWidget.background #"#252526"
-  welcomePage.tileHoverBackground: "#2c2c2d"    # -> editorWidget.background lighten 20%
+  welcomePage.tileHoverBackground: 
+    #"#2c2c2d"    # -> editorWidget.background lighten 20%
+    illuminate: 0.19
+    <<: *editorWidget.background
   welcomePage.tileShadow.: *widget.shadow #"#0000005c"
   welcomePage.progress.background: *input.background #"#3c3c3c"
   welcomePage.progress.foreground: *textLink.foreground #"#3794ff"
@@ -496,7 +587,8 @@ workbench:
   # debug colors
   debugToolBar.background: "#333333"
   debugToolBar.border: null
-  debugIcon.startForeground: &debugIcon.startForeground "#89d185"
+  debugIcon.startForeground: &debugIcon.startForeground 
+    color: "#89d185"
   debugTokenExpression.name: "#c586c0"
   debugTokenExpression.value: "#cccccc99"
   debugTokenExpression.string: "#ce9178"
@@ -553,13 +645,15 @@ workbench:
   peekViewTitle.background: "#1e1e1e"
   peekViewTitleLabel.foreground: "#ffffff"
   peekViewTitleDescription.foreground: "#ccccccb3"
-  peekView.border: &peekView.border "#007acc"
+  peekView.border: &peekView.border 
+    color: "#007acc"
   peekViewResult.background: "#252526"
   peekViewResult.lineForeground: "#bbbbbb"
   peekViewResult.fileForeground: "#ffffff"
   peekViewResult.selectionBackground: "#3399ff33"
   peekViewResult.selectionForeground: "#ffffff"
-  peekViewEditor.background: &peekViewEditor.background "#001f33"
+  peekViewEditor.background: &peekViewEditor.background 
+    color: "#001f33"
   peekViewEditorGutter.background: *peekViewEditor.background #"#001f33"
   peekViewResult.matchHighlightBackground: "#ea5c004d"
   peekViewEditor.matchHighlightBackground: "#ff8f0099"
@@ -589,8 +683,12 @@ workbench:
   settings.numberInputBackground: *input.background #"#3c3c3c"
   settings.numberInputForeground: *input.foreground #"#cccccc"
   settings.numberInputBorder: null                  # -> input.border
-  settings.focusedRowBackground: "#80808024"
-  settings.rowHoverBackground: "#80808012"          # settings.focusedRowBackground 50%
+  settings.focusedRowBackground: &settings.focusedRowBackground
+    color: "#80808024"
+  settings.rowHoverBackground: 
+    #"#80808012"          # settings.focusedRowBackground 50%
+    opacity: 0.07
+    <<: *settings.focusedRowBackground
   settings.focusedRowBorder: "#ffffff1f"
   
   # exception widgets
@@ -602,9 +700,18 @@ workbench:
   editor.focusedStackFrameHighlightBackground: "#7abd7a4d"
 
   # error navigation widget
-  editorMarkerNavigationError.background: "#f48771"     # -> editorError.foreground or editorError.border
-  editorMarkerNavigationWarning.background: "#cca700"   # -> editorWarning.foreground or editorError.border
-  editorMarkerNavigationInfo.background: "#75beff"      # -> editorInfo.foreground or editorError.border
+  editorMarkerNavigationError.background: 
+    #"#f48771"     # -> editorError.foreground or editorError.border
+    - *editorError.foreground
+    - *editorError.border
+  editorMarkerNavigationWarning.background: 
+    #"#cca700"   # -> editorWarning.foreground or editorWarning.border
+    - *editorWarning.foreground
+    - *editorWarning.border
+  editorMarkerNavigationInfo.background: 
+    #"#75beff"      # -> editorInfo.foreground or editorInfo.border
+    - *editorInfo.foreground
+    - *editorInfo.border
   editorMarkerNavigation.background: "#2d2d30"
 
   # word highlighter
@@ -623,34 +730,51 @@ workbench:
   editorSuggestWidget.background: *editorWidget.background #"#252526"
   editorSuggestWidget.border: *editorWidget.border #"#454545"
   editorSuggestWidget.foreground: *editor.foreground #"#d4d4d4"
-  editorSuggestWidget.selectedForeground: *quickInputList.focusBackground #"#ffffff"
+  editorSuggestWidget.selectedForeground: *quickInputList.focusForeground #"#ffffff"
   editorSuggestWidget.selectedIconForeground: *quickInputList.focusIconForeground #"#ffffff"
   editorSuggestWidget.selectedBackground: *quickInputList.focusBackground #"#094771"
   editorSuggestWidget.highlightForeground: *list.highlightForeground #"#18a3ff"
   editorSuggestWidget.focusHighlightForeground: *list.focusHighlightForeground #"#18a3ff"
 
   # diff decorator
-  editorGutter.modifiedBackground: "#0c7d9d"
-  editorGutter.addedBackground: "#587c0c"
-  editorGutter.deletedBackground: "#94151b"
+  editorGutter.modifiedBackground: &editorGutter.modifiedBackground
+    color: "#0c7d9d"
+  editorGutter.addedBackground: &editorGutter.addedBackground
+    color: "#587c0c"
+  editorGutter.deletedBackground: &editorGutter.deletedBackground
+    color: "#94151b"
   minimapGutter.modifiedBackground: "#0c7d9d"
   minimapGutter.addedBackground: "#587c0c"
   minimapGutter.deletedBackground: "#94151b"
-  editorOverviewRuler.modifiedForeground: "#0c7d9d99"   # -> editorGutter.modifiedBackground 60%
-  editorOverviewRuler.addedForeground: "#587c0c99"      # -> editorGutter.addedBackground 60%
-  editorOverviewRuler.deletedForeground: "#94151b99"    # -> editorGutter.deletedBackground 60%
+  editorOverviewRuler.modifiedForeground: 
+    #"#0c7d9d99"   # -> editorGutter.modifiedBackground 60%
+    opacity: 0.6
+    <<: *editorGutter.modifiedBackground
+  editorOverviewRuler.addedForeground: 
+    #"#587c0c99"      # -> editorGutter.addedBackground 60%
+    opacity: 0.6
+    <<: *editorGutter.addedBackground
+  editorOverviewRuler.deletedForeground: 
+    #"#94151b99"    # -> editorGutter.deletedBackground 60%
+    opacity: 0.6
+    <<: *editorGutter.deletedBackground
   
   # notebook
-  notebook.cellBorderColor: "#37373d"                   # -> list.inactiveSelectionBackground
+  notebook.cellBorderColor: &notebook.cellBorderColor 
+    color: "#37373d"                   # -> list.inactiveSelectionBackground
   notebook.focusedEditorBorder: *focusBorder #"#007fd4"
   notebookStatusSuccessIcon.foreground: *debugIcon.startForeground #"#89d185"
   notebookStatusErrorIcon.foreground: *errorForeground #"#f48771"
   notebookStatusRunningIcon.foreground: *foreground #"#cccccc"
   notebook.outputContainerBackgroundColor: null
   notebook.cellToolbarSeparator: "#80808059"
-  notebook.focusedCellBackground: null
+  notebook.focusedCellBackground: &notebook.focusedCellBackground
+    color: null
   notebook.selectedCellBackground: "#37373d"            # -> list.activeSelectionBackground
-  notebook.cellHoverBackground: null                    # -> notebook.focusedCellBackground 50%
+  notebook.cellHoverBackground: 
+    #null                    # -> notebook.focusedCellBackground 50%
+    opacity: 0.5
+    <<: *notebook.focusedCellBackground
   notebook.selectedCellBorder: *notebook.cellBorderColor #"#37373d"
   notebook.inactiveSelectedCellBorder: null
   notebook.focusedCellBorder: *focusBorder #"#007fd4"
@@ -661,7 +785,10 @@ workbench:
   notebookScrollbarSlider.hoverBackground: *scrollbarSlider.hoverBackground #"#646464b3"
   notebookScrollbarSlider.activeBackground: *scrollbarSlider.activeBackground #"#bfbfbf66"
   notebook.symbolHighlightBackground: "#ffffff0b"
-  notebook.cellEditorBackground: "#cccccc0a"            # -> foreground 4%
+  notebook.cellEditorBackground: 
+    #"#cccccc0a"            # -> foreground 4%
+    opacity: 0.04
+    <<: *foreground
 
   # breakpoints
   debugIcon.breakpointForeground: "#e51400"
@@ -687,7 +814,10 @@ workbench:
   walkThrough.embeddedEditorBackground: null
   
   # folding
-  editor.foldBackground: "#264f784d"                      # -> editor.selectionBackground 30%
+  editor.foldBackground: 
+    #"#264f784d"                      # -> editor.selectionBackground 30%
+    opacity: 0.3
+    <<: *editor.selectionBackground
   editorGutter.foldingControlForeground: *icon.foreground #"#c5c5c5"
   
   # search editor
@@ -706,9 +836,12 @@ workbench:
 
   # git extension
   gitDecoration.addedResourceForeground: "#81b88b"
-  gitDecoration.modifiedResourceForeground: &gitDecoration.modifiedResourceForeground "#e2c08d"
-  gitDecoration.deletedResourceForeground: &gitDecoration.deletedResourceForeground "#c74e39"
-  gitDecoration.renamedResourceForeground: &gitDecoration.renamedResourceForeground "#73c991"
+  gitDecoration.modifiedResourceForeground: &gitDecoration.modifiedResourceForeground 
+    color: "#e2c08d"
+  gitDecoration.deletedResourceForeground: &gitDecoration.deletedResourceForeground 
+    color: "#c74e39"
+  gitDecoration.renamedResourceForeground: &gitDecoration.renamedResourceForeground 
+    color: "#73c991"
   gitDecoration.untrackedResourceForeground: *gitDecoration.renamedResourceForeground #"#73c991"
   gitDecoration.ignoredResourceForeground: "#8c8c8c"
   gitDecoration.stageModifiedResourceForeground: *gitDecoration.modifiedResourceForeground #"#e2c08d"
@@ -732,7 +865,8 @@ workbench:
   gitlens.unpulledChangesIconColor: "#b15e35"
   
   gitlens.decorations.addedForegroundColor: "#81b88b"
-  gitlens.decorations.copiedForegroundColor: *gitDecoration.renamedResourceForeground #"#73c991"
+  gitlens.decorations.copiedForegroundColor: &gitlens.decorations.copiedForegroundColor
+    <<: *gitDecoration.renamedResourceForeground #"#73c991"
   gitlens.decorations.deletedForegroundColor: *gitDecoration.deletedResourceForeground #"#c74e39"
   gitlens.decorations.ignoredForegroundColor: "#8c8c8c"
   gitlens.decorations.modifiedForegroundColor: "#e2c08d"

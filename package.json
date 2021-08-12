@@ -42,7 +42,9 @@
   "devDependencies": {
     "@types/js-yaml": "^4.0.2",
     "@types/node": "^16.4.13",
+    "@types/tinycolor2": "^1.4.3",
     "js-yaml": "^4.1.0",
+    "tinycolor2": "^1.4.2",
     "ts-node": "^10.2.0",
     "vsce": "^1.96.1"
   }
