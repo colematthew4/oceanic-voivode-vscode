@@ -253,7 +253,7 @@ workbench:
   toolbar.hoverOutline: null
   toolbar.activeBackground: "#a6a6a650"
 
-  # snippet placeholders
+  # snippet markers
   editor.snippetTabstopHighlightBackground: "#0a326433"
   editor.snippetFinalTabstopHighlightBackground: null
   editor.snippetTabstopHighlightBorder: null

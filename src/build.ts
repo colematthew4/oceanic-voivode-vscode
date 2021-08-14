@@ -50,9 +50,9 @@ function resolveColor(colorValue: ColorTheme): string | null | undefined {
       const hsl = tinycolor(color).toHsl()
       // use vscode's algorithm vs tinycolor's
       // https://github.com/microsoft/vscode/blob/main/src/vs/base/common/color.ts#L358
-      color = tinycolor({ ...hsl, l: hsl.l + hsl.l * colorValue.illuminate }).toHexString()
+      color = tinycolor({ ...hsl, l: hsl.l + hsl.l * colorValue.illuminate }).toHexString();
     }
-    if (color != null && colorValue.opacity) {
+    if (color != null && colorValue.opacity != null) {
       color = tinycolor(color).setAlpha(colorValue.opacity).toHex8String();
     }
   } else {
