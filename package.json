@@ -37,7 +37,9 @@
   ],
   "scripts": {
     "build": "ts-node src/build.ts",
-    "vscode:prepublish": "npm run build",
+    "pack": "vscd package",
+    "prepack": "npm run build",
+    "vscode:prepublish": "npm pack",
     "publish": "vsce publish"
   },
   "devDependencies": {
