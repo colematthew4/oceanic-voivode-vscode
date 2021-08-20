@@ -192,7 +192,6 @@ tokens:
       - variable.language                             # $ symbol in $this
       # - variable.language punctuation.definition.variable.php
       - variable.parameter.function.language.special  # special words as parameters
-    # foreground: *color-constant
     foreground: *color-keyword
     fontStyle: italic
   - name: Inherited classes
@@ -241,13 +240,17 @@ tokens:
       - constant.language.symbol.hashkey.ruby
       # - variable.other.constant
       - variable.other.constant.ruby
+      - entity.name.type.option.rust
+      - entity.name.type.result.rust
       - meta.structure.dictionary.value.json constant.language.json
     foreground: *color-constant
   - name: Constant escape sequences
     scope:
       - constant.character.escape
+      - constant.character.format.placeholder.other
       - constant.character.string.escape
       - constant.regexp
+      - entity.name.type.numeric
     foreground: *color-keyword
   
   # entities
@@ -296,6 +299,7 @@ tokens:
       - keyword.operator.function.infix
       - support.function.builtin
       - support.function.kernel
+      - entity.name.function.macro
     foreground: *color-function
     fontStyle: italic underline
   - name: Function parameters
@@ -310,14 +314,17 @@ tokens:
         variable.arguments.graphql
       - variable.parameter
       - variable.other.positional.shell
+      - meta.function.parameters variable.other.go
     foreground: *color-parameter
-    fontStyle: italic
+    # fontStyle: italic
   - name: Decorators and Annotations
     scope:
       - entity.name.type.annotation
       - meta.decorator meta.function-call entity.name.function
       - meta.decorator variable.other.readwrite
       - meta.decorator variable.other.property
+      - meta.attribute.rust
+      - entity.name.function.decorator
     foreground: *color-metadata
     # fontStyle: italic
   - name: Decorator Objects
@@ -346,7 +353,9 @@ tokens:
 
   # language built-ins
   - name: Language Built-ins
-    scope: support
+    scope: 
+      - support
+      - support.type.primitive.go
     fontStyle: italic
     foreground: *color-type
   - name: Built-in types
@@ -358,6 +367,7 @@ tokens:
       - support.function.magic
       - support.variable
       - variable.other.predefined
+      - variable.other.enummember
     foreground: *color-constant
     fontStyle: null
   - name: Built-in functions / properties
@@ -429,7 +439,9 @@ tokens:
       - punctuation.definition.variable.makefile
     foreground: *color-keyword
   - name: Decorator punctuation
-    scope: punctuation.decorator
+    scope: 
+      - punctuation.decorator
+      - punctuation.definition.decorator
     foreground: *color-metadata
     fontStyle: null
 
@@ -459,14 +471,18 @@ tokens:
       - storage.type.type
       - storage.type.class
       - storage.type.alias
+      - storage.type.func
       - storage.type.function
       - storage.type.interface
       - storage.type.import
       - storage.type.package
       - storage.type.namespace
+      - storage.type.var
+      - storage.type.const
       - storage.type.variable
       - storage.type.object
       - storage.type.property
+      - storage.type.struct
       - meta.var.expr storage.type
       - meta.method.declaration storage.type
       - meta.method.declaration storage.type.ts
@@ -481,6 +497,7 @@ tokens:
       - entity.name.type
       - keyword.primitive-datatypes.swift
       - keyword.type.cs
+      - meta.function.parameters.python
       - meta.protocol-list.objc
       - meta.return-type.objc
       - source.go storage.type
@@ -624,6 +641,11 @@ tokens:
       - meta.variable.assignment.destructured.object.coffee variable variable
     foreground: *color-text
     fontStyle: null
+  - name: Labels
+    scope: 
+      - entity.name.type.lifetime
+      - storage.modifier.lifetime.rust
+    foreground: "#467EDA"
   
   # graphql
   - name: GraphQL keys
@@ -648,6 +670,8 @@ tokens:
       - meta.scope.for-loop.shell punctuation.definition.string.end
       - meta.scope.if-block.shell punctuation.definition.string.begin
       - meta.scope.if-block.shell punctuation.definition.string.end
+      - punctuation.definition.parameters.begin.python
+      - punctuation.definition.parameters.end.python
       - meta.scope.for-loop.shell string
       - storage.modifier.import                 # java/groovy imports
       - punctuation.section.embedded.begin.tsx
@@ -655,6 +679,7 @@ tokens:
       - punctuation.section.embedded.begin.jsx
       - punctuation.section.embedded.end.jsx
       - punctuation.separator.list.comma.css
+      - punctuation.separator.parameters.python
       - constant.language.empty-list.haskell    # commas separating selectors in css
     foreground: *color-text
   - name: Global pre-defined variables and parameters
