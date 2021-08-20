@@ -1,6 +1,8 @@
 .vscode/**
 .vscode-test/**
 .gitignore
+tsconfig*
 vsc-extension-quickstart.md
+src
 node_modules
 examples

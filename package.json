@@ -2,7 +2,7 @@
   "name": "oceanic-voivode-vscode",
   "displayName": "Oceanic Voivode",
   "version": "1.0.0",
-  "description": "An evolution of the Material Oceanic theme for IntelliJ on the workbench and the Dracula theme in the editor.",
+  "description": "A dark theme for Visual Studio Code, inspired by the Material Oceanic theme for IntelliJ on the workbench and the Dracula theme in the editor.",
   "author": "Matthew Cole",
   "publisher": "Matthew Cole",
   "license": "MIT",
@@ -10,9 +10,18 @@
     "type": "git",
     "url": "https://github.com/colematthew4/oceanic-voivode-vscode"
   },
+  "bugs": {
+    "url": "https://github.com/colematthew4/oceanic-voivode-vscode/issues"
+  },
   "engines": {
     "vscode": "^1.58.0"
   },
+  "icon": "assets/icon.png",
+  "keywords": [
+    "oceanic",
+    "dracula",
+    "theme"
+  ],
   "categories": [
     "Themes"
   ],
@@ -30,17 +39,12 @@
     "pkief.material0icon-theme",
     "jenkeny2011.string-highlight"
   ],
-  "keywords": [
-    "oceanic",
-    "dracula",
-    "theme"
-  ],
   "scripts": {
     "build": "ts-node src/build.ts",
     "pack": "vscd package",
     "prepack": "npm run build",
     "vscode:prepublish": "npm pack",
-    "publish": "vsce publish"
+    "publish": "vsce publish --githubBranch main"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.2",
