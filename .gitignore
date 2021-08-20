@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,node,macos
 
@@ -166,5 +165,8 @@ dist
 # Ignore all local history of files
 .history
 .ionide
+
+# The actual generated theme
+theme/oceanic-voivode*.json
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,macos

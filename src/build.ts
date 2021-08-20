@@ -5,7 +5,7 @@ import tinycolor from 'tinycolor2';
 
 type YamlTheme = {
   presets: Array<string>,
-  workbench: Theme
+  ui: Theme
 }
 type Theme = { [index: string]: ColorTheme }
 type ColorTheme = string | Array<ColorTheme> | Color | null
@@ -26,10 +26,11 @@ async function writeJson(json: Theme, theme: string) {
     data[key] = resolveColor(value);
   });
 
-  await fs.writeFile(join(__dirname, '..', 'theme', 'generated.json'), JSON.stringify({
-    '$schema': 'vscode://schemas/color-theme',
-    'type': theme,
-    'colors': data
+  await fs.writeFile(join(__dirname, '..', 'theme', 'oceanic-voivode.json'), JSON.stringify({
+    $schema: 'vscode://schemas/color-theme',
+    type: theme,
+    colors: data,
+    semanticHighlighting: true
   }, null, 2));
 }
 
@@ -65,7 +66,7 @@ function resolveColor(colorValue: ColorTheme): string | null | undefined {
 function build(themes: Array<string>) {
   themes.forEach(async theme => {
     const data: any = await readYaml(theme);
-    await writeJson(data.workbench, theme);
+    await writeJson(data.ui, theme);
   });
 };
 
