@@ -772,7 +772,7 @@ ui:
   input.placeholderForeground: *color-workbench-secondary-foreground
 
   # input validation
-  inputValidation.infoBackground: "#fff000" # TODO
+  inputValidation.infoBackground: null
   inputValidation.infoForeground: null
   inputValidation.infoBorder: *color-workbench-info
   inputValidation.warningBackground: null
@@ -938,10 +938,10 @@ ui:
   # inline hints
   # To see the editor inline hints, set "editor.inlineSuggest.enabled"
   editorInlayHint.foreground:
-    color: "#007ACC" # TODO
+    color: *color-editor-foreground
     opacity: 0.8
   editorInlayHint.background:
-    color: "#FF0000" # TODO
+    color: *color-editor-background
     opacity: 0.6
 
   # editor lightbulb icon
@@ -960,7 +960,7 @@ ui:
   diffEditor.removedTextBorder: null
   diffEditor.border: null
   diffEditor.diagonalFill:
-    color: "#007AAC" # TODO
+    color: *color-editor-modify
     opacity: 0.2
 
   # lists and trees
