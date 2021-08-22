@@ -1,6 +1,6 @@
 color-presets:
   - &black "#000000"
-  
+
   # workbench
   - &color-workbench-foreground "#B0BEC5"
   - &color-workbench-background "#263238"
@@ -38,7 +38,7 @@ color-presets:
   - &color-editor-run "#50FA7B"
   - &color-editor-step "#589DF6"
   - &color-editor-step-back "#FFB86C"
-  
+
   # git
   - &color-git-add "#C3E887"
   - &color-git-move "#3A8484"
@@ -93,7 +93,7 @@ tokens:
     foreground: *color-string
   - scope: markup.error
     foreground: *color-workbench-error
-  
+
   # markdown/rst/prose
   - name: Underlined markup
     scope: markup.underline
@@ -176,7 +176,7 @@ tokens:
         markup.quote.markdown meta.paragraph.markdown
         punctuation.definition.string.end
     foreground: *color-string
-  
+
   # classes
   - name: User-defined class names
     scope:
@@ -198,7 +198,7 @@ tokens:
     scope: entity.other.inherited-class
     fontStyle: italic
     foreground: *color-type-inherited
-  
+
   # comments
   - name: Comments
     scope:
@@ -226,7 +226,7 @@ tokens:
     scope: comment.block.documentation variable
     foreground: *color-parameter
     fontStyle: italic
-  
+
   # constants
   - name: Constants
     scope:
@@ -252,7 +252,7 @@ tokens:
       - constant.regexp
       - entity.name.type.numeric
     foreground: *color-keyword
-  
+
   # entities
   - name: HTML tag definitions
     scope:
@@ -280,7 +280,7 @@ tokens:
     scope:
       - meta.embedded.block.html
     foreground: *color-text
-  
+
   # functions/methods
   - name: Function names
     scope:
@@ -330,7 +330,7 @@ tokens:
   - name: Decorator Objects
     scope: meta.decorator variable.other.object
     foreground: *color-function
-  
+
   # keywords
   - name: Keywords
     scope:
@@ -353,7 +353,7 @@ tokens:
 
   # language built-ins
   - name: Language Built-ins
-    scope: 
+    scope:
       - support
       - support.type.primitive.go
     fontStyle: italic
@@ -439,7 +439,7 @@ tokens:
       - punctuation.definition.variable.makefile
     foreground: *color-keyword
   - name: Decorator punctuation
-    scope: 
+    scope:
       - punctuation.decorator
       - punctuation.definition.decorator
     foreground: *color-metadata
@@ -533,7 +533,7 @@ tokens:
       - storage.modifier
       - support.type.object.module
     foreground: *color-keyword
-  
+
   # regex
   - name: RegExp sequence characters
     scope:
@@ -573,7 +573,7 @@ tokens:
   - name: Look-ahead and Look-behind
     scope: meta.group.regexp
     foreground: *color-function
-  
+
   # strings
   - name: Strings
     scope:
@@ -642,11 +642,11 @@ tokens:
     foreground: *color-text
     fontStyle: null
   - name: Labels
-    scope: 
+    scope:
       - entity.name.type.lifetime
       - storage.modifier.lifetime.rust
     foreground: "#467EDA"
-  
+
   # graphql
   - name: GraphQL keys
     scope: meta.selectionset.graphql variable
@@ -659,7 +659,7 @@ tokens:
       - entity.name.fragment.graphql
       - variable.fragment.graphql
     foreground: *color-type
-  
+
   # edge cases
   - name: Edge cases (foreground color resets)
     scope:
@@ -1322,7 +1322,7 @@ ui:
   # editor cursor highlight
   # The current line is typically shown as either background highlight or a border (not both)
   editor.lineHighlightBackground: null
-  editor.lineHighlightBorder: 
+  editor.lineHighlightBorder:
     color: *color-editor-highlight
     opacity: 0.46
   # The range highlight is visible when selecting a search result
@@ -1446,7 +1446,7 @@ ui:
     <<: *editorWidget.background
   welcomePage.tileShadow.: *widget.shadow
   welcomePage.progress.background: *input.background
-  welcomePage.progress.foreground: *textLink.foreground
+  welcomePage.progress.foreground: *color-workbench-accent
 
   # debug colors
   debugToolBar.background: *color-workbench-background
@@ -1474,7 +1474,7 @@ ui:
   debugConsole.errorForeground: *errorForeground
   debugConsole.sourceForeground: *foreground
   debugConsoleInputIcon.foreground: *color-keyword #*foreground
-  
+
   debugIcon.pauseForeground:
     color: *color-editor-run
     opacity: 0.5
@@ -1555,13 +1555,13 @@ ui:
   settings.modifiedItemIndicator: *color-workbench-accent
   settings.dropdownBackground: *dropdown.background
   settings.dropdownForeground: *dropdown.foreground
-  settings.dropdownBorder: *dropdown.border        
+  settings.dropdownBorder: *dropdown.border
   settings.dropdownListBorder: *editorWidget.border
   settings.checkboxBackground: *checkbox.background
   settings.checkboxForeground: *checkbox.foreground
-  settings.checkboxBorder: *checkbox.border        
-  settings.textInputBackground: *input.background  
-  settings.textInputForeground: *input.foreground  
+  settings.checkboxBorder: *checkbox.border
+  settings.textInputBackground: *input.background
+  settings.textInputForeground: *input.foreground
   settings.textInputBorder: *input.border           # null
   settings.numberInputBackground: *input.background
   settings.numberInputForeground: *input.foreground
@@ -1635,7 +1635,7 @@ ui:
   editorSuggestWidget.selectedForeground: *quickInputList.focusForeground
   editorSuggestWidget.selectedIconForeground: null #*quickInputList.focusIconForeground
   editorSuggestWidget.selectedBackground: *quickInputList.focusBackground
-  editorSuggestWidget.highlightForeground: 
+  editorSuggestWidget.highlightForeground:
     color: *color-workbench-accent #*list.highlightForeground
     opacity: 0.666
   editorSuggestWidget.focusHighlightForeground: *color-workbench-accent #*list.focusHighlightForeground
@@ -1703,11 +1703,11 @@ ui:
 
   # breakpoints
   debugIcon.breakpointForeground: *color-workbench-error
-  debugIcon.breakpointDisabledForeground: 
+  debugIcon.breakpointDisabledForeground:
     color: "#FFFFFF"
     opacity: 0.1
   debugIcon.breakpointUnverifiedForeground: *color-workbench-error
-  debugIcon.breakpointStackframeForeground: 
+  debugIcon.breakpointStackframeForeground:
     color: "#50FA7B"
     opacity: 0.5
   debugIcon.breakpointCurrentStackframeForeground: *color-function
@@ -1756,7 +1756,7 @@ ui:
   scm.providerBorder: *color-workbench-separator-border
 
   # git extension
-  gitDecoration.addedResourceForeground: &gitDecoration.addedResourceForeground 
+  gitDecoration.addedResourceForeground: &gitDecoration.addedResourceForeground
     color: *color-git-add
   gitDecoration.modifiedResourceForeground: &gitDecoration.modifiedResourceForeground
     color: "#80CBC4"
