@@ -889,6 +889,45 @@ ui:
   keybindingLabel.bottomBorder:
     color: *black
     opacity: 0.6
+  keybindingTable.headerBackground:
+    color: *foreground
+    opacity: 0.04
+  keybindingTable.rowsBackground:
+    color: *foreground
+    opacity: 0.04
+
+  # editor brackets
+  editorBracketHighlight.foreground1: &editorBracketHighlight.foreground1
+    color: *color-editor-foreground
+    opacity: 0.83
+  editorBracketHighlight.foreground2: &editorBracketHighlight.foreground2
+    color: *color-workbench-error
+    opacity: 0.83
+  editorBracketHighlight.foreground3: &editorBracketHighlight.foreground3
+    color: *color-constant
+    opacity: 0.83
+  editorBracketHighlight.foreground4: &editorBracketHighlight.foreground4
+    color: *color-parameter
+    opacity: 0.83
+  editorBracketHighlight.foreground5: &editorBracketHighlight.foreground5
+    color: *color-type
+    opacity: 0.83
+  editorBracketHighlight.foreground6: &editorBracketHighlight.foreground6
+    color: *color-string
+    opacity: 0.83
+  editorBracketHighlight.unexpectedBracket.foreground: "#FF1212CC"
+  editorBracketPairGuide.activeBackground1: *color-editor-foreground
+  editorBracketPairGuide.activeBackground2: *color-workbench-error
+  editorBracketPairGuide.activeBackground3: *color-constant
+  editorBracketPairGuide.activeBackground4: *color-parameter
+  editorBracketPairGuide.activeBackground5: *color-type
+  editorBracketPairGuide.activeBackground6: *color-string
+  editorBracketPairGuide.background1: *editorBracketHighlight.foreground1
+  editorBracketPairGuide.background2: *editorBracketHighlight.foreground2
+  editorBracketPairGuide.background3: *editorBracketHighlight.foreground3
+  editorBracketPairGuide.background4: *editorBracketHighlight.foreground4
+  editorBracketPairGuide.background5: *editorBracketHighlight.foreground5
+  editorBracketPairGuide.background6: *editorBracketHighlight.foreground6
 
   # editor selection
   # Selection colors are visible when selecting one or more characters. In addition to the selection also all regions with the same content are highlighted.
@@ -931,18 +970,23 @@ ui:
   editorHoverWidget.foreground: *editorWidget.foreground
   editorHoverWidget.border: *color-workbench-separator-border #*editorWidget.border
   editorHoverWidget.statusBarBackground: *editorWidget.background
+  editorHoverWidget.highlightForeground: *color-workbench-active-selection-foreground
 
   # editor link
   editorLink.activeForeground: *color-workbench-links
 
   # inline hints
   # To see the editor inline hints, set "editor.inlineSuggest.enabled"
-  editorInlayHint.foreground:
+  editorInlayHint.foreground: &editorInlayHint.foreground
     color: *color-editor-foreground
     opacity: 0.8
-  editorInlayHint.background:
+  editorInlayHint.background: &editorInlayHint.background
     color: *color-editor-background
     opacity: 0.6
+  editorInlayHint.parameterForeground: *editorInlayHint.foreground
+  editorInlayHint.parameterBackground: *editorInlayHint.background
+  editorInlayHint.typeForeground: *editorInlayHint.foreground
+  editorInlayHint.typeBackground: *editorInlayHint.background
 
   # editor lightbulb icon
   editorLightBulb.foreground: *color-editor-fix
@@ -1099,6 +1143,8 @@ ui:
   minimapSlider.activeBackground:
     color: *color-workbench-active-selection-background
     opacity: 0.2
+  minimap.foregroundOpacity: null
+  minimap.selectionOccurrenceHighlight: null
   problemsErrorIcon.foreground: *editorError.foreground
   problemsWarningIcon.foreground: *editorWarning.foreground
   problemsInfoIcon.foreground: *editorInfo.foreground
@@ -1172,6 +1218,9 @@ ui:
   editorGroup.dropBackground: &editorGroup.dropBackground
     color: *color-workbench-drop-background
     opacity: 0.5
+
+  sideBySideEditor.horizontalBorder: *color-workbench-separator-border
+  sideBySideEditor.verticalBorder: *color-workbench-separator-border
 
   # panels
   # Panels are shown below the editor area and contain views like Output and Integrated Terminal
@@ -1398,6 +1447,9 @@ ui:
     opacity: 0.2
   testing.message.hint.decorationForeground: *editorHint.foreground
   testing.message.hint.lineBackground: null
+  testing.peekHeaderBackground:
+    color: *editorError.foreground
+    opacity: 0.1
 
   # symbol icons
   # The theme colors for symbol icons that appears in the Outline view, breadcrumb navigation, and suggest widget
@@ -1444,7 +1496,7 @@ ui:
     #"#2c2c2d"    # -> editorWidget.background lighten 20%
     illuminate: 0.19
     <<: *editorWidget.background
-  welcomePage.tileShadow.: *widget.shadow
+  welcomePage.tileShadow: *widget.shadow
   welcomePage.progress.background: *input.background
   welcomePage.progress.foreground: *color-workbench-accent
 
@@ -1593,18 +1645,27 @@ ui:
 
   # error navigation widget
   # The editor marker view shows when navigating to errors and warnings in the editor (Go to Next Error or Warning command)
-  editorMarkerNavigationError.background:
+  editorMarkerNavigationError.background: &editorMarkerNavigationError.background
     #"#f48771"     # -> editorError.foreground or editorError.border
     - *editorError.foreground
     - *editorError.border
-  editorMarkerNavigationWarning.background:
+  editorMarkerNavigationError.headerBackground:
+    color: *editorMarkerNavigationError.background
+    opacity: 0.1
+  editorMarkerNavigationWarning.background: &editorMarkerNavigationWarning.background
     #"#cca700"   # -> editorWarning.foreground or editorWarning.border
     - *editorWarning.foreground
     - *editorWarning.border
-  editorMarkerNavigationInfo.background:
+  editorMarkerNavigationWarning.headerBackground:
+    color: *editorMarkerNavigationWarning.background
+    opacity: 0.1
+  editorMarkerNavigationInfo.background: &editorMarkerNavigationInfo.background
     #"#75beff"      # -> editorInfo.foreground or editorInfo.border
     - *editorInfo.foreground
     - *editorInfo.border
+  editorMarkerNavigationInfo.headerBackground:
+    color: *editorMarkerNavigationInfo.background
+    opacity: 0.1
   editorMarkerNavigation.background: *color-workbench-background
 
   # word highlighter
@@ -1722,6 +1783,7 @@ ui:
 
   # extension widget
   extensionIcon.starForeground: "#FFB86C"
+  extensionIcon.verifiedForeground: *color-workbench-accent
 
   # debug editor
   editor.inlineValuesForeground:
