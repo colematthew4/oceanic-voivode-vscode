@@ -1,7 +1,7 @@
 {
   "name": "oceanic-voivode-vscode",
   "displayName": "Oceanic Voivode",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A dark theme for Visual Studio Code, inspired by the Material Oceanic theme for IntelliJ on the workbench and the Dracula theme in the editor.",
   "author": "Matthew Cole",
   "publisher": "OceanicVoivode",
